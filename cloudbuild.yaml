@@ -1,5 +1,3 @@
-# hello
-
 steps:
   - id: 'terraform init'
     name: 'hashicorp/terraform:light'
