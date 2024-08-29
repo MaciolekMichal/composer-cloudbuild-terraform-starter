@@ -32,7 +32,8 @@ resource "google_service_account_iam_member" "composer_sa" {
 
 resource "google_composer_environment" "starter_environment" {
   provider = google
-  name = "starter-environment"
+  name = "fun-starter-environment"
+  region = "europe-central2"
 
   config {
 
@@ -44,5 +45,6 @@ resource "google_composer_environment" "starter_environment" {
       service_account = google_service_account.composer_sa.email
     }
 
+    environment_size  = "ENVIRONMENT_SIZE_SMALL"
   }
 }
