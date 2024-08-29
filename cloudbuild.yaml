@@ -14,7 +14,7 @@ steps:
       - '-c'
       - |
         terraform plan \
-          -var-file="/terraform/terraform.tfvars"
+          -var-file="terraform.tfvars"
     
   - id: 'terraform apply'
     name: 'hashicorp/terraform:light'
@@ -23,7 +23,7 @@ steps:
       - '-c'
       - |
         terraform apply \
-          -var-file="/terraform/terraform.tfvars" \
+          -var-file="terraform.tfvars" \
           --auto-approve
 
 options:
