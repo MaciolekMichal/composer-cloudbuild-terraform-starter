@@ -1,0 +1,27 @@
+steps:
+  - id: 'terraform init'
+    name: 'hashicorp/terraform:light'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform init"
+    
+  - id: 'terraform plan'
+    name: 'hashicorp/terraform:light'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform plan -var-file="terraform.tfvars"
+    
+  - id: 'terraform apply'
+    name: 'hashicorp/terraform:light'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform apply -var-file="terraform.tfvars" --auto-approve
+
+options:
+  logging: CLOUD_LOGGING_ONLY
