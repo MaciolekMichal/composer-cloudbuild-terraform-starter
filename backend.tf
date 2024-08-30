@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "composer-challenges-terraform-state"
+    bucket = "composer-challenges-terraform-states"
     prefix = "env/dev"
   }
 }
