@@ -11,9 +11,9 @@ resource "google_project_iam_member" "composer_sa" {
   role     = "roles/composer.worker"
 }
 
-resource "google_service_account_iam_member" "composer_sa" {
-  provider = google
-  service_account_id = google_service_account.composer_sa.name
-  role = "roles/composer.ServiceAgentV2Ext"
-  member = "serviceAccount:service-${var.project_number}@cloudcomposer-accounts.iam.gserviceaccount.com"
-}
+# resource "google_service_account_iam_member" "composer_sa" {
+#   provider = google
+#   service_account_id = google_service_account.composer_sa.name
+#   role = "roles/composer.ServiceAgentV2Ext"
+#   member = "serviceAccount:service-${var.project_number}@cloudcomposer-accounts.iam.gserviceaccount.com"
+# }
