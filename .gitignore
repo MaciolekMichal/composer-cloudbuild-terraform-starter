@@ -2,4 +2,3 @@ venv/
 .terraform*
 *.tfstate*
 *.tfplan
-key.json
