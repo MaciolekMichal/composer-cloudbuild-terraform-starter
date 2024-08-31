@@ -1,17 +1,18 @@
-resource "google_service_account" "initial_composer_sa" {
-  provider = google
-  account_id   = "composer-sa"
-  display_name = "Cloud Composer Service Account"
-}
-
-# resource "google_project_iam_member" "composer_sa" {
+# resource "google_service_account" "initial_composer_sa" {
 #   provider = google
-#   project  = "composer-fun"
-#   member   = "serviceAccount:${google_service_account.initial_composer_sa.email}" 
-#   role     = "roles/composer.worker"
-
-#   depends_on = [google_service_account.initial_composer_sa]
+#   account_id   = "composer-sa"
+#   display_name = "Cloud Composer Service Account"
 # }
+
+resource "google_project_iam_member" "composer_sa" {
+  provider = google
+  project  = "composer-fun"
+  # member   = "serviceAccount:${google_service_account.initial_composer_sa.email}" 
+  member   = "serviceAccount:composer-sa@composer-provision-debug.iam.gserviceaccount.com" 
+  role     = "roles/composer.worker"
+
+  # depends_on = [google_service_account.initial_composer_sa]
+}
 
 # resource "google_service_account_iam_member" "composer_sa" {
 #   provider = google
