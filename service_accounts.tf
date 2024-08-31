@@ -4,12 +4,12 @@ resource "google_service_account" "composer_sa" {
   display_name = "Cloud Composer Service Account"
 }
 
-resource "google_project_iam_member" "composer_sa" {
-  provider = google
-  project  = "composer-fun"
-  member   = "serviceAccount:${google_service_account.composer_sa.email}" 
-  role     = "roles/composer.worker"
-}
+# resource "google_project_iam_member" "composer_sa" {
+#   provider = google
+#   project  = "composer-fun"
+#   member   = "serviceAccount:${google_service_account.composer_sa.email}" 
+#   role     = "roles/composer.worker"
+# }
 
 # resource "google_service_account_iam_member" "composer_sa" {
 #   provider = google
