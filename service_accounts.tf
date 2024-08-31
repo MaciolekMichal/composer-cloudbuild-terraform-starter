@@ -1,8 +1,8 @@
-# resource "google_service_account" "initial_composer_sa" {
-#   provider = google
-#   account_id   = "composer-sa"
-#   display_name = "Cloud Composer Service Account"
-# }
+resource "google_service_account" "initial_composer_sa" {
+  provider = google
+  account_id   = "composer-sa"
+  display_name = "Cloud Composer Service Account"
+}
 
 resource "google_project_iam_member" "composer_sa" {
   provider = google
@@ -11,7 +11,7 @@ resource "google_project_iam_member" "composer_sa" {
   member   = "serviceAccount:composer-sa@composer-provision-debug.iam.gserviceaccount.com" 
   role     = "roles/composer.worker"
 
-  # depends_on = [google_service_account.initial_composer_sa]
+  depends_on = [google_service_account.initial_composer_sa]
 }
 
 # resource "google_service_account_iam_member" "composer_sa" {
